@@ -4,10 +4,12 @@ from data import load_data
 from preprocess import split_xy,train_val_test_split,StandardScalerScrath
 from model_scratch import linearRegressionGD
 from evaluate import rmse, mae
+import joblib
+import os
 
 def main():
-    df=load_data
-    X,y=split_xy
+    df=load_data()
+    X,y=split_xy(df)
     X_train,y_train,X_val,y_val,X_test,y_test=train_val_test_split(X,y)
 
     scaler=StandardScalerScrath()
@@ -28,9 +30,23 @@ def main():
     print("Sklearn MAE/RMSE:",mae(perd_val_k,y_val),rmse(perd_val_k,y_val))
 
     print("\n=== Test ===")
-    print("Scratch MAE/RMSE:",mae(pred_test_s,y_val),rmse(pred_test_s,y_val))
-    print("Sklearn MAE/RMSE:",mae(perd_test_k,y_val),rmse(perd_test_k,y_val))
+    print("Scratch MAE/RMSE:",mae(pred_test_s,y_test),rmse(pred_test_s,y_test))
+    print("Sklearn MAE/RMSE:",mae(perd_test_k,y_test),rmse(perd_test_k,y_test))
 
-    if name == "main":
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    model_path = os.path.join(current_dir, 'model.pkl')
+    scaler_path = os.path.join(current_dir, 'scaler.pkl')
+
+    joblib.dump(sk, model_path)
+    joblib.dump(scaler, scaler_path)
+
+    print(f"Model saved to: {model_path}")
+    print(f"Scaler saved to: {scaler_path}")
+    print("Model and scaler have been saved in the project directory!")
+
+if __name__ == "__main__":
         main()
+    
+
         
