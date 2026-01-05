@@ -1,3 +1,7 @@
+# California Housing Price Prediction Project (with Dirty Data Handling and Deployment)
+
+## Project Overview
+
 This is a complete end-to-end machine learning project using the classic **California Housing dataset** (built-in to scikit-learn). The main goals are:
 
 - Implement `StandardScaler` and gradient descent-based `LinearRegression` from scratch
@@ -21,7 +25,7 @@ Although the project name includes "dirty data", the current version works perfe
 ├── app.py                # Flask web application (deployment entry point)
 ├── dirty_experiment.py   # Dirty data experiments (noise, missing values, etc.)
 └── plots.py              # Visualization helpers
-text> Note: `model.pkl` and `scaler.pkl` are generated in the `src/` directory after running `train.py` and are **not** committed to the repository.
+text> **Note**: `model.pkl` and `scaler.pkl` are generated in the `src/` directory after running `train.py` and are **not** committed to the repository.
 
 ## Quick Start
 
@@ -47,16 +51,18 @@ Open your browser and visit: http://127.0.0.1:5000
 Enter housing features and click "立即预测房价" to see the predicted price in USD!
 4. Online Deployment (Recommended: Render - Free Tier Available)
 
-Push your project to GitHub (already done!)
-Go to https://render.com → New → Web Service
-Connect your GitHub repository
-Settings:
+Your project is already on GitHub and ready for deployment!
+Go to https://render.com → Dashboard → New → Web Service
+Connect your GitHub account and select this repository
+Configure the following settings:
 Build Command: pip install -r requirements.txt
 Start Command: gunicorn src.app:app
 
-Click "Create Web Service"
-After deployment (2-5 minutes), you'll get a public URL where anyone can use your house price predictor!
+Click Create Web Service
+Wait 2-5 minutes for deployment to complete
+You will receive a public URL (e.g., https://your-app.onrender.com) where anyone can use your house price predictor!
 
+Tip: On the free tier, the app may take 10-30 seconds to wake up on the first visit. Subsequent visits will be instant.
 Demo Preview
 
 Medium income, average features → Predicted price around $200,000 ~ $300,000
