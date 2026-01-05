@@ -5,20 +5,20 @@ import pandas as pd
 
 app = Flask(__name__)
 
-# 强制使用脚本所在目录加载模型
+# 关键修复：使用脚本所在目录，确保无论从哪启动都能找到模型
 current_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(current_dir, 'model.pkl')
 scaler_path = os.path.join(current_dir, 'scaler.pkl')
 
-# 加载模型和 scaler
 try:
     model = joblib.load(model_path)
     scaler = joblib.load(scaler_path)
     print(f"成功加载模型: {model_path}")
     print(f"成功加载标准化器: {scaler_path}")
-except Exception as e:
-    print(f"加载失败: {e}")
-    exit()
+except FileNotFoundError as e:
+    print(f"模型文件未找到: {e}")
+    print("请先运行: python -m src.train 生成模型")
+    exit(1)
 
 FEATURES = ['MedInc', 'HouseAge', 'AveRooms', 'AveBedrms',
             'Population', 'AveOccup', 'Latitude', 'Longitude']
@@ -104,3 +104,4 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
