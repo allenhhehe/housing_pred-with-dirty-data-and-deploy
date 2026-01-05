@@ -37,7 +37,7 @@ git clone https://github.com/allenhhehe/housing_pred-with-dirty-data-and-deploy.
 cd housing_pred-with-dirty-data-and-deploy
 
 # Install dependencies (one command!)
-pip install -r requirements.txt
+pip install -r requirements.txt && python -m src.train
 2. Train the Model
 Bashpython -m src.train
 This will:
