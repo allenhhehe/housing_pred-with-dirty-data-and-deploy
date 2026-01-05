@@ -26,11 +26,12 @@ textsrc/
 Quick Start
 1. Environment Setup (Python 3.9+ recommended)
 Bash# Clone the repository
+# Clone the repository
 git clone https://github.com/allenhhehe/housing_pred-with-dirty-data-and-deploy.git
-cd housing_pred-with-dirty-data-and-deploy/src
+cd housing_pred-with-dirty-data-and-deploy
 
-# Install dependencies (virtual environment recommended)
-pip install scikit-learn pandas numpy flask joblib
+# Install dependencies (one command!)
+pip install -r requirements.txt
 2. Train the Model
 Bashpython train.py
 This will print MAE/RMSE on validation and test sets (scratch and sklearn versions are nearly identical) and generate two files in the current directory:
