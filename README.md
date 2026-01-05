@@ -8,7 +8,8 @@ Prepare for handling "dirty data" scenarios (extensible foundation already in pl
 Train and save the model
 Deploy as an interactive web application using Flask, allowing users to input housing features in the browser and get instant price predictions (in USD)
 
-Although the project name includes "dirty data", the current version works perfectly with clean data and provides a solid base for future experiments with missing values, outliers, or noise.
+Although the project name includes "dirty data", the current version works perfectly with clean data and provides a solid base for future experiments with missing values, outliers, or 
+noise.
 Project Structure
 textsrc/
 ├── data.py               # Data loading
