@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from src.data import load_data
+from data import load_data
 def make_dirty(df:pd.DataFrame,
                nan_cols,
                outlier_cols,
@@ -63,3 +63,4 @@ if __name__=="__main__":
 
     
     
+
