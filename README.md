@@ -11,6 +11,8 @@ Deploy as an interactive web application using Flask, allowing users to input ho
 Although the project name includes "dirty data", the current version works perfectly with clean data and provides a solid base for future experiments with missing values, outliers, or 
 noise.
 Project Structure
+
+
 textsrc/
 ├── data.py               # Data loading
 ├── preprocess.py         # Train/val/test split, feature/target separation, custom StandardScaler
